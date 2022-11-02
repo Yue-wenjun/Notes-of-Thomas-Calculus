@@ -1,0 +1,208 @@
+\documentclass{book}
+\usepackage{newtxtext}
+\usepackage[marginparwidth={4cm},lmargin={1cm}, rmargin={5cm}]{geometry}
+\usepackage[dvipsnames,svgnames,x11names]{xcolor}
+\usepackage[strict]{changepage} % 提供一个 adjustwidth 环境
+\usepackage{framed} % 框包
+\usepackage{xeCJK}%中文包
+\usepackage{amsmath}%写连等式对齐包
+\usepackage{graphicx}%插入图片
+\usepackage{wallpaper}%插入背景图
+\usepackage{indentfirst}%latex第一段首行不缩进，看着不爽，于是用包使每段都缩进
+%\usepackage{titlesec}如有需要设置各级标题
+%\usepackage{ctex}如有需要设置中文字体
+
+
+\geometry{a4paper,centering,scale=0.8}
+\definecolor{formalshade}{rgb}{0.95,0.95,1} % 文本框颜色
+% ------------------******-------------------
+% 注意行末需要把空格注释掉，不然画出来的方框会有空白竖线
+\definecolor{greenshade}{rgb}{0.92,1,0.92}
+\definecolor{grayshade}{rgb}{0.90,0.90,0.90}
+%蓝紫框--------------------------------------------
+\newenvironment{formal1}{%
+\def\FrameCommand{%
+\hspace{1pt}%
+{\color{DarkBlue}\vrule width 2pt}%
+{\color{SteelBlue}\vrule width 4pt}%
+\colorbox{formalshade}%
+}%
+\MakeFramed{\advance\hsize-\width\FrameRestore}%
+\noindent\hspace{-4.55pt}% disable indenting first paragraph
+\begin{adjustwidth}{}{7pt}%
+\vspace{2pt}\vspace{2pt}%
+}
+{%
+\vspace{2pt}\end{adjustwidth}\endMakeFramed%
+}
+%绿框---------------------------------------
+\newenvironment{formal2}{%
+\def\FrameCommand{%
+\hspace{1pt}%
+{\color{Green}\vrule width 2pt}%
+{\color{DarkSeaGreen1}\vrule width 4pt}%
+\colorbox{greenshade}%
+}%
+\MakeFramed{\advance\hsize-\width\FrameRestore}%
+\noindent\hspace{-4.55pt}% disable indenting first paragraph
+\begin{adjustwidth}{}{7pt}%
+\vspace{2pt}\vspace{2pt}%
+}
+{%
+\vspace{2pt}\end{adjustwidth}\endMakeFramed%
+}
+%灰框---------------------------------------
+\newenvironment{formal3}{%
+\def\FrameCommand{%
+\hspace{1pt}%
+{\color{darkgray}\vrule width 2pt}%
+{\color{Ivory4}\vrule width 4pt}%
+\colorbox{grayshade}%
+}%
+\MakeFramed{\advance\hsize-\width\FrameRestore}%
+\noindent\hspace{-4.55pt}% disable indenting first paragraph
+\begin{adjustwidth}{}{7pt}%
+\vspace{2pt}\vspace{2pt}%
+}
+{%
+\vspace{2pt}\end{adjustwidth}\endMakeFramed%
+}
+%天蓝框---------------------------------------
+\newenvironment{formal4}{%
+\def\FrameCommand{%
+\hspace{1pt}%
+{\color{SkyBlue}\vrule width 2pt}%
+{\color{Cyan1}\vrule width 4pt}%
+\colorbox{LightCyan1}%
+}%
+\MakeFramed{\advance\hsize-\width\FrameRestore}%
+\noindent\hspace{-4.55pt}% disable indenting first paragraph
+\begin{adjustwidth}{}{7pt}%
+\vspace{2pt}\vspace{2pt}%
+}
+{%
+\vspace{2pt}\end{adjustwidth}\endMakeFramed%
+}
+%粉框---------------------------------------
+\newenvironment{formal5}{%
+\def\FrameCommand{%
+\hspace{1pt}%
+{\color{HotPink}\vrule width 2pt}%
+{\color{LightPink}\vrule width 4pt}%
+\colorbox{MistyRose}%
+}%
+\MakeFramed{\advance\hsize-\width\FrameRestore}%
+\noindent\hspace{-4.55pt}% disable indenting first paragraph
+\begin{adjustwidth}{}{7pt}%
+\vspace{2pt}\vspace{2pt}%
+}
+{%
+\vspace{2pt}\end{adjustwidth}\endMakeFramed%
+}
+%首段首行缩进--------------------------------------
+\setlength{\parindent}{2em}
+
+% ------------------******-------------------
+% ------------------******-------------------
+% ------------------******-------------------
+% ------------------******------------------
+\begin{document}
+ \begin{titlepage}
+ \newgeometry{left=3cm,right=3cm}
+ \ThisCenterWallPaper{1.28}{2.jpg}
+ \color{darkgray} 
+ \begingroup
+ \thispagestyle{empty}
+ \centering
+ \vspace*{5cm}
+ \par\normalfont\fontsize{35}{35}\sffamily\selectfont
+ \textbf{Thomas Calculus}\\ 
+ {\LARGE 002 Calculus and Technical English}\par % Book title
+ \vspace*{1cm}
+ {\Huge Book Notes}\par % Author name
+ \endgroup
+ \end{titlepage}
+
+
+
+ \section{Functions, Graphs, and Lines}
+\marginpar{parallel to 平行\\
+vertical line  垂线\\
+inverse 反函数\\
+Interval notation 区间表示法\\
+Polynomials\\
+wiggle 摆动\\
+Rational functions\\
+Exponentials and logarithms\\
+Trig functions\\
+functions involving absolute values}
+
+
+\par \begin{enumerate}
+ \item functions: their domain, codomain, and range, and the vertical line test;
+ \item inverse functions and the horizontal line test;
+ \item composition of functions;
+ \item odd and even functions;
+ \item graphs of linear functions and polynomials in general, as well as a brief
+ survey of graphs of rational functions, exponentials, and logarithms; and
+ \item how to deal with absolute values.
+
+\end{enumerate}
+ \color{darkgray}
+ \definecolor{shadecolor}{rgb}{0.90,0.9,0.90}
+ \begin{shaded}
+ {\subsection[short]{function}}
+\end{shaded}
+\color{black}
+
+\begin{formal4}
+about inverse\\    
+If the domain of a function $f$ can be restricted so that $f$ has an inverse
+$f^-1$then
+\begin{itemize}
+\item $f (f ^{−1}(y)) = y$ for all $y$ in the range of $f$ ; but
+\item $f ^{−1}(f (x))$ may not equal $x$; in fact, $f ^{−1}(f (x)) = x$ only when x is in
+the restricted domain.\\
+\end{itemize}
+about composition notation\\
+Another way of expressing $f (x) = h(g(x))$ is
+to write $f = h \circ g$; here the circle means “composed with.” That is, $f$ is $h$
+composed with $g$, or in other words, $f$ is the composition of h and g. What’s
+tricky is that you write $h$ before $g$ (reading from left to right as usual!) but
+you apply $g$ first.
+\end{formal4}
+
+\section{Review of Trigonometry}
+\begin{itemize}
+    \item angles in radians and the basics of the trig functions;
+    \item trig functions on the real line (not just angles between 0◦ and 90◦);    
+    \item graphs of trig functions; and
+    \item trig identities.
+\end{itemize}
+
+\section{Introduction to Limits}
+\marginpar{intuitive 直观的\\
+}
+\begin{itemize}
+    \item an intuitive idea of what a limit is;
+    \item left-hand, right-hand, and two-sided limits, and limits at $\infty$ and $-\infty$;
+    \item when limits fail to exist; and
+    \item the sandwich principle (also known as the “squeeze principle”).
+\end{itemize}
+\begin{formal5}
+
+But here’s something important: the regular two-sided limit at x = a exists exactly
+when both left-hand and right-hand limits at x = a exist and are equal to
+each other!
+
+we now have a formal definition of the
+term “vertical asymptote”:
+“f has a vertical asymptote at x = a” means that at least one
+of limx → a+f (x) and limx → a−f (x) is equal to ∞ or −∞.
+
+\end{formal5}
+
+Implicent Differentiation
+
+
+\end{document}
